@@ -2,5 +2,7 @@
 all:doc
 doc:source-control/source-control.pdf
 
-%.pdf:%.tex
+%.toc:%.tex
+	cd $(dir $@) && pdflatex $(notdir $<)
+%.pdf:%.tex %.toc
 	cd $(dir $@) && pdflatex $(notdir $<)
